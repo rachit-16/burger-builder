@@ -4,8 +4,8 @@ import styles from './BuildControls.module.css';
 
 const controls = [
   { label: 'Bacon', type: 'bacon' },
-  { label: 'Meat', type: 'meat' },
   { label: 'Cheese', type: 'cheese' },
+  { label: 'Meat', type: 'meat' },
   { label: 'Salad', type: 'salad' }
 ];
 
@@ -23,6 +23,13 @@ const buildControls = (props) => (
         disabled={props.disabled[ctrl.type]}
       />
     ))}
+    <button
+      className={styles.OrderButton}
+      onClick={props.ordered}
+      disabled={!props.purchasable}
+    >
+      ORDER NOW!
+    </button>
   </div>
 );
 
