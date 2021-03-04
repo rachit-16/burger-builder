@@ -38,7 +38,7 @@ class BurgerBuilder extends Component {
     const newPrice = oldPrice + cost;
 
     this.setState({ ingredients: updatedIngredients, totalPrice: newPrice });
-    this.updatePurchaseStateHandler(updatedIngredients);
+    this.updatePurchaseState(updatedIngredients);
     // passing updatedIngredients, just so that the change in state
     // takes place immediately (by passing most recent ingredients directly)
   };
@@ -60,10 +60,10 @@ class BurgerBuilder extends Component {
     const newPrice = oldPrice - cost;
 
     this.setState({ ingredients: updatedIngredients, totalPrice: newPrice });
-    this.updatePurchaseStateHandler(updatedIngredients);
+    this.updatePurchaseState(updatedIngredients);
   };
 
-  updatePurchaseStateHandler(ingredients) {
+  updatePurchaseState(ingredients) {
     const sum = Object.keys(ingredients)
       .map((igKey) => ingredients[igKey])
       .reduce((sum, qty) => sum + qty, 0);
@@ -73,6 +73,14 @@ class BurgerBuilder extends Component {
 
   purchaseHandler = () => {
     this.setState({ purchasing: true });
+  };
+
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
+  };
+
+  purchaseContinueHandler = () => {
+    alert('You continue!');
   };
 
   render() {
@@ -85,8 +93,16 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal show={this.state.purchasing}>
-          <OrderSummary ingredients={this.state.ingredients} />
+        <Modal
+          show={this.state.purchasing}
+          modalClosed={this.purchaseCancelHandler}
+        >
+          <OrderSummary
+            ingredients={this.state.ingredients}
+            price={this.state.totalPrice}
+            purchaseCancelled={this.purchaseCancelHandler}
+            purchaseContinued={this.purchaseContinueHandler}
+          />
         </Modal>
         <Burger ingredients={this.state.ingredients} />
         <BuildControls
