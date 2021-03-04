@@ -5,6 +5,10 @@
   margin: 5px 0;
 }
 
+.BuildControl p {
+  margin: 3px 0;
+}
+
 .BuildControl button {
   display: block;
   font: inherit;
@@ -33,6 +37,8 @@
   padding: 10px;
   font-weight: bold;
   width: 80px;
+  margin: 4px 0;
+  padding: 6px 0;
 }
 
 .BuildControl .Less {
@@ -55,4 +61,23 @@
 .BuildControl .More:active {
   background-color: #99703f;
   color: white;
+}
+
+.itemPrice {
+  margin-right: 10px !important;
+}
+
+@media (min-width: 500px) {
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .BuildControl {
+    margin: 5px 5%;
+    padding: 5px 10px;
+  }
 }

@@ -17,7 +17,8 @@
   color: #966909;
   font-family: inherit;
   font-size: 1.2em;
-  padding: 15px 30px;
+  padding: 10px 20px;
+  margin: 2px 0;
   box-shadow: 2px 2px 2px #966909;
 }
 
@@ -48,5 +49,25 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+
+.currentPrice {
+  margin: 10px 0;
+}
+
+@media (min-width: 500px) {
+  .controls {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 50%;
+    align-items: center;
+    justify-content: space-around;
+    margin: 5px 0;
+  }
+
+  .OrderButton {
+    margin: 12px 30px;
   }
 }
