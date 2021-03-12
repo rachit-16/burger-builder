@@ -3,8 +3,10 @@ import styles from './BuildControl.module.css';
 
 const buildControl = (props) => (
   <div className={styles.BuildControl}>
-    <p className={styles.Label}>{props.label}</p>
-    <p className={styles.itemPrice}>(+ &#8377;{props.ingredientPrice})</p>
+    <div className={styles.labelStyle}>
+      <p className={styles.Label}>{props.label}</p>
+      <p className={styles.itemPrice}>(+ &#8377;{props.ingredientPrice})</p>
+    </div>
     <button
       className={styles.Less}
       onClick={props.removed}
